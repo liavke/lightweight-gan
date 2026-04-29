@@ -1161,7 +1161,7 @@ class Trainer():
         config = self.config() if not self.config_path.exists() else json.loads(self.config_path.read_text())
         self.image_size = config['image_size']
         self.transparent = config['transparent']
-        self.syncbatchnorm = config['syncbatchnorm']
+        self.syncbatchnorm = config.get('syncbatchnorm', False)
         self.disc_output_size = config['disc_output_size']
         self.greyscale = config.pop('greyscale', False)
         self.attn_res_layers = config.pop('attn_res_layers', [])
